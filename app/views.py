@@ -15,7 +15,6 @@ from app import mail
 from flask_mail import Message
 
 
-
 ###
 # Routing for your application.
 ###
@@ -40,14 +39,10 @@ def contact():
             msg.body = myform.message.data
             mail.send(msg)
 
-            #name=myform.name.data
-            #email = myform.email.data
-            #subject = myform.subject.data
-            #message = myform.subject.data
-            #msg = Message(subject, name, email, message)
-            #mail.send(msg)
+          
 
             flash('Email sent successfully', '/')
+            return redirect('/')
         flash_errors(myform)
     return render_template('contact.html', form=myform)
 
